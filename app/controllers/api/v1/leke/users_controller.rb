@@ -1,6 +1,7 @@
 class Api::V1::Leke::UsersController < Lina::ApplicationController
   rescue_from ::Exception, with: :error_occurred
-    
+  before_action :authenticate
+
   def error_occurred(e)
     render json: { error: e.message}
   end
@@ -44,4 +45,17 @@ class Api::V1::Leke::UsersController < Lina::ApplicationController
     end
 
   end
+
+
+
+  private
+    def authenticate
+      api_key = request.headers['X-Zombie-Api-Key']
+      @user = Admin.where(api_key: api_key).first if api_key
+
+      unless @user
+        head status: :unauthorized
+        return false        
+      end
+    end
 end
