@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-
+#source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -45,3 +45,17 @@ group :development do
   gem 'spring'
 end
 
+
+gem 'lina'
+
+group :development do
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rbenv', '~> 2.0.2'
+end
+
+gem 'mysql2'
+gem 'pry'
+# Use Unicorn as the app server
+gem 'unicorn'
