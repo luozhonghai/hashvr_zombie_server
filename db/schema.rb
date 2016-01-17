@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20160117094557) do
   end
 
   create_table "leke_plays", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "leke_user_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "leke_users", force: :cascade do |t|

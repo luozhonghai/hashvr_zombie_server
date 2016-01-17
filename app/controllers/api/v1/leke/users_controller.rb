@@ -1,6 +1,6 @@
 class Api::V1::Leke::UsersController < Lina::ApplicationController
   rescue_from ::Exception, with: :error_occurred
-  before_action :authenticate
+  #before_action :authenticate
 
   def error_occurred(e)
     render json: { error: e.message}
@@ -32,12 +32,11 @@ class Api::V1::Leke::UsersController < Lina::ApplicationController
     }
   } do
     # write code here, It's the same as before
-    @user = Leke::User::find_by(ip: params[:ip])
+    @user = Leke::User.find_by(ip: params[:ip])
     if @user == nil
       @user = Leke::User.create(ip: params[:ip])
     end
-    @play = Leke::Play::create(user: @user.id)
-
+    @play = Leke::Play.create(leke_user: @user)
     if @play != nil  && @user != nil
       render json: { code: "1" }
     else
