@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       namespace :leke do
         get 'users/new'
       end
+    end
   end
 
   #get 'users/new'
