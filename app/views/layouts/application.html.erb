@@ -5,10 +5,35 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style type="text/css">
+    html,body{
+      height: 100%
+    }
+    .container-zombie {
+      margin-top: 40px
+    }
+  </style>
 </head>
 <body>
-
-<%= yield %>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Zombie</a>
+        </div>
+        <nav>
+          <ul class="nav navbar-nav pull-right">
+            <% if session[:login] %>
+              <li><%= link_to "logout", login_destroy_path(id: 1), method: :delete %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="container container-zombie">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

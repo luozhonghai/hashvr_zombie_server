@@ -57,5 +57,16 @@ end
 
 gem 'mysql2'
 gem 'pry'
+gem 'pry-nav' 
+gem 'pry-rails', :group => :development # for console
+
 # Use Unicorn as the app server
 gem 'unicorn'
+
+gem 'bootstrap-sass', '~> 3.3.4'
+
+# #paginate
+gem 'kaminari', '~> 0.16.3'
+
+gem 'annotate', '~> 2.6.6'
+

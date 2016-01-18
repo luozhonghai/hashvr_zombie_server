@@ -1,0 +1,9 @@
+<h1>Manage#index</h1>
+<p>Find me in app/views/manage/index.html.erb</p>
+<p>api_key:</p> 
+<%= Admin.first.api_key %>
+<br>
+<ul>
+  <li><%= link_to "leke_users", leke_users_index_path %></li>
+  <li><%= link_to "leke_plays", leke_plays_index_path %></li>
+</ul>

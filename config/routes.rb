@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  namespace :leke do
+  get 'plays/index'
+  end
+
+  namespace :leke do
+  get 'users/index'
+  end
+
+  get 'login/new'
+
+  post 'login/create'
+
+  delete 'login/destroy'
+
   namespace :api, :path => "" do
     namespace :v1 do
       namespace :leke do
@@ -11,6 +25,16 @@ Rails.application.routes.draw do
   #get 'users/new'
 
   api_for '/apidoc'
+
+  root 'login#new'
+
+
+  namespace :manage do
+    
+  end
+
+  get 'manage/index' => 'manage#index', as: :manage
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

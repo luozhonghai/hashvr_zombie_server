@@ -1,0 +1,14 @@
+<h1>登陆</h1>
+<%= form_for(@admin_user, :url=>login_create_path)  do |f|%>
+  <div class="field">
+    <%= f.label :name, "用户名" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "密码" %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "登陆" %>
+  </div>
+<% end %>
