@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :leke do
         get 'users/new'
+        get 'users/partner'
       end
     end
   end

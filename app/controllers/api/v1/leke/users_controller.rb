@@ -45,7 +45,38 @@ class Api::V1::Leke::UsersController < Lina::ApplicationController
 
   end
 
-
+  define_action :partner, {
+      name: 'partner',
+      description: '',
+      params: {
+        type: 'object',
+        required: [ 'partner' ],
+        properties: {
+          ip: {
+            type: 'string',
+            description: 'partner identifier',
+          }
+        }
+      },
+      return: {
+        type: 'object',
+        required: [ 'code' ],
+        properties: {
+          code: {
+            type: 'string',
+            description: '成功返回1，失败返回0',
+          }
+        }
+      }
+    } do
+      if params[:partner] == "dalian"
+        render json: { code: "1" }
+      elsif params[:partner] == "huanshi"
+        render json: { code: "1" }
+      else
+        render json: { code: "0" }
+      end
+  end
 
   private
     def authenticate
